@@ -1,0 +1,2 @@
+INSERT INTO credential (client_id, client_secret, access_token, type, usage_type, redirect_uri, redirect_deeplink, token_type, usage_count, token_update_time, email, application_name, is_updated, is_active, is_deleted, creation_time, update_time)
+VALUES ('', '', '', '{App,Auth}', '{Default,Worker}', '/auth/callback/', '', 'Bearer', 0, '2021-05-12 22:57:36.24', '', 'Free', false, true, false, '2021-05-12 23:24:50.00', '2021-05-12 22:57:36.24');

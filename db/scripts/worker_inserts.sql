@@ -1,0 +1,4 @@
+INSERT INTO worker (id, name, is_working, is_enabled, trigger_immediately, run_on_startup, creation_time, update_time) VALUES ('search-worker', 'Search Worker', false, false, false, false, '2021-01-19 22:03:42.00', '2021-01-20 18:24:05.62');
+INSERT INTO worker (id, name, is_working, is_enabled, trigger_immediately, run_on_startup, creation_time, update_time) VALUES ('token-worker', 'Token Worker', false, false, true, false, '2021-01-19 22:03:42.00', '2021-01-23 01:00:35.54');
+INSERT INTO worker (id, name, is_working, is_enabled, trigger_immediately, run_on_startup, creation_time, update_time) VALUES ('category-worker', 'Category', false, true, true, true, '2021-01-19 22:03:42.00', '2021-01-23 11:57:22.18');
+INSERT INTO worker (id, name, is_working, is_enabled, trigger_immediately, run_on_startup, creation_time, update_time) VALUES ('newday-worker', 'NewDay', false, true, true, false, '2021-01-19 22:03:42.00', '2021-01-23 11:57:22.18');
