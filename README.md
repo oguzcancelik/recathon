@@ -27,7 +27,7 @@ Used technologies are:
 
 To run the project locally, follow the instructions.
 
-### 1. Prerequisite
+### 1. Prerequisites
 
 * .NET 5
 * Python 3
@@ -38,7 +38,7 @@ To run the project locally, follow the instructions.
 
 ### 2. Spotify Api Configuration
 
-Recathon depends on the Spotify Web Api for music recommendation. You should have a valid access token to able to run the project.
+Recathon depends on the Spotify Web Api for music recommendation. You should have a valid access token to be able to run the project.
 
 Visit [Spotify's official documentation](https://developer.spotify.com/documentation/web-api/) for more detailed information.
 
@@ -52,7 +52,7 @@ NOTE: Don't forget to update the `client_id, client_secret, access_token` fields
 
 ### 4. Prediction Service Configuration
 
-To install the necessary packages, follow this scripts.
+To install the necessary packages, follow these scripts.
 
 ```bash
 $ cd recathon\src\Prediction\
