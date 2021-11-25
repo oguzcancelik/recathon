@@ -1,0 +1,39 @@
+version: "3.9"
+
+services:
+  spotifygateway:
+    build:
+      context: ..\src\SpotifyGatewayApi\SpotifyGateway
+      dockerfile: ..\..\..\docker-files\spotifygateway\Dockerfile
+    container_name: spotifygateway
+    restart: always
+    expose:
+      - 5000
+  nginx-spotifygateway:
+    build: ./nginx-spotifygateway
+    container_name: nginx-spotifygateway
+    restart: always
+    ports:
+      - '5000:80'
+  prediction:
+    build:
+      context: ..\src\Prediction
+      dockerfile: ..\..\docker-files\prediction\Dockerfile
+    container_name: prediction
+    restart: always
+    expose:
+      - 8080
+  nginx-prediction:
+    build: ./nginx-prediction
+    container_name: nginx-prediction
+    restart: always
+  mongo-rec:
+    container_name: mongo-rec
+    image: mongo
+    volumes:
+      - mongodata:/data/db
+    ports:
+      - '27018:27017'
+
+volumes:
+  mongodata:
