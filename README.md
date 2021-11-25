@@ -23,6 +23,14 @@ Used technologies are:
 * MongoDB
 * Redis
 
+## About Project
+
+As it's mentioned above, Recathon analyzes the musical characteristic of the user's playlists.
+It uses Spotify's [audio features](https://developer.spotify.com/documentation/web-api/reference/#/operations/get-several-audio-features) to train the machine learning algorithms.
+After model is trained with features of the tracks in the user's playlist, a pool of tracks, which contains tracks of the similar artists of the playlist, is created and tested in the trained model.
+
+After that, program selects the successful values and creates a new playlists in Spotify with selected tracks.
+
 ## Setup
 
 To run the project locally, follow the instructions.
@@ -31,7 +39,7 @@ To run the project locally, follow the instructions.
 
 * .NET 5
 * Python 3
-* node.js
+* Node.js
 * PostgreSQL
 * MongoDB
 * Redis
@@ -132,4 +140,32 @@ Redis Settings
     "Connection": "127.0.0.1:6379"
   }
 }
+```
+
+### 6. Client Side Configuration
+
+To install the necessary packages, follow these scripts.
+
+```bash
+$ cd recathon\src\SpotifyGatewayApi\SpotifyGateway\frontend\
+
+$ npm install
+```
+
+### 7. Run The Project
+
+After configuration process is done, you can run services separately.
+
+```bash
+$ cd recathon\src\SpotifyGatewayApi\SpotifyGateway\
+
+$ dotnet run
+```
+
+```bash
+$ cd recathon\src\Prediction\
+
+$ venv\Scripts\activate.bat
+
+$ flask run
 ```
