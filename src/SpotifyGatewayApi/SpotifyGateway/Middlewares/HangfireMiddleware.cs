@@ -1,9 +1,6 @@
-﻿using System;
-using System.Net;
-using System.Text;
+﻿using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
 using SpotifyGateway.Infrastructure.Configuration.Settings.Abstraction;
 using SpotifyGateway.Infrastructure.Extensions;
 using SpotifyGateway.Models.Responses;
@@ -13,19 +10,15 @@ namespace SpotifyGateway.Middlewares
 {
     public class HangfireMiddleware
     {
-        private readonly IServiceProvider _serviceProvider;
         private readonly RequestDelegate _next;
 
-        public HangfireMiddleware(IServiceProvider serviceProvider, RequestDelegate next)
+        public HangfireMiddleware(RequestDelegate next)
         {
-            _serviceProvider = serviceProvider;
             _next = next;
         }
 
-        public async Task Invoke(HttpContext context)
+        public async Task Invoke(HttpContext context, IAuthSettings authSettings)
         {
-            var authSettings = _serviceProvider.GetRequiredService<IAuthSettings>();
-
             var hangfireToken = context.Request.GetHangfireToken();
 
             if (hangfireToken != authSettings.HangfireToken)
@@ -33,7 +26,7 @@ namespace SpotifyGateway.Middlewares
                 context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
                 context.Response.ContentType = MimeTypes.JsonType;
 
-                await context.Response.WriteAsync(DefaultResponses.BadRequestResponse.ToJson(), Encoding.UTF8);
+                await context.Response.WriteAsJsonAsync(DefaultResponses.BadRequestResponse);
 
                 return;
             }
